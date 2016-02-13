@@ -3,9 +3,9 @@
  */
 'use strict';
 
-angular.module('controllers').controller('SaveOrUpdateArticleController', ['$scope', '$translate', '$routeParams',
-    'tmhDynamicLocale', 'ArticleAdminService',
-    function($scope, $translate, $routeParams, tmhDynamicLocale, ArticleAdminService) {
+angular.module('controllers').controller('SaveOrUpdateArticleController', ['$scope', '$rootScope', '$translate',
+    '$routeParams', '$filter', 'tmhDynamicLocale', 'ArticleAdminService',
+    function($scope, $rootScope, $translate, $routeParams, $filter, tmhDynamicLocale, ArticleAdminService) {
         tmhDynamicLocale.set($translate.use());
 
         $scope.popup = {
@@ -19,9 +19,16 @@ angular.module('controllers').controller('SaveOrUpdateArticleController', ['$sco
         $scope.articleId = $routeParams.id;
 
         if ($scope.articleId != undefined) {
+            $rootScope.title = {
+                value: $filter('translate')('ARTICLE_UPDATE_TITLE')
+            };
             ArticleAdminService.get($scope.articleId).success(function(data) {
                 $scope.article = data;
             });
+        } else {
+            $rootScope.title = {
+                value: $filter('translate')('ARTICLE_ADD_TITLE')
+            };
         }
 
         $scope.$watch('article.preview', function(preview) {
