@@ -9,8 +9,14 @@
                     <h3 class="blog-post-title">
                         <a href="/article/{{article.id}}">{{article.title}}</a>
                     </h3>
+                    <p class="hash-tags">
+                        <span class="glyphicon glyphicon-bookmark" ng-if="article.hashtags.length > 0"></span>
+                        <span ng-repeat="tag in article.hashtags">
+                            <a href="#" class="grey-color">{{tag}}</a>
+                        </span>
+                    </p>
                     <p>
-                        {{article.text}}
+                        {{article.preview}}
                     </p>
                     <p>
                         <a href="/article/{{article.id}}">{{'READ_MORE' | translate}}</a>
