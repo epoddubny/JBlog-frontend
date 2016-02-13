@@ -1,0 +1,39 @@
+<div class="content">
+    <div ng-class-odd="'grey-background'" ng-class-even="'white-background'" ng-repeat="article in currentPage.articles">
+        <div class="blog-post container">
+            <div class="row">
+                <div class="col-sm-offset-2 col-sm-8">
+                    <p class="blog-post-created">
+                        {{article.created}}
+                    </p>
+                    <h3 class="blog-post-title">
+                        <a href="/article/{{article.id}}">{{article.title}}</a>
+                    </h3>
+                    <p>
+                        {{article.text}}
+                    </p>
+                    <p>
+                        <a href="/article/{{article.id}}">{{'READ_MORE' | translate}}</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container text-center">
+        <uib-pagination
+                boundary-links="true"
+                ng-if="currentPage.totalElements"
+                total-items="currentPage.totalElements"
+                ng-model="$parent.currentPageNumber"
+                ng-change="pageChanged()"
+                items-per-page="pageSize"
+                class="pagination-sm"
+                previous-text="&lsaquo;"
+                next-text="&rsaquo;"
+                first-text="&laquo;"
+                last-text="&raquo;">
+        </uib-pagination>
+    </div>
+</div>
+

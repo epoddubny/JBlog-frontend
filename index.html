@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="jBlogApp">
+
+    <head>
+        <meta charset="UTF-8">
+
+        <base href="/" />
+
+        <title>{{'TITLE' | translate:title}}</title>
+
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="bower_components/highlightjs/styles/github.css"/>
+        <link rel="stylesheet" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css"/>
+        <link rel="stylesheet" href="resources/css/style.css"/>
+
+    </head>
+
+    <body>
+        <div ng-include src="'app/fragments/header.html'"></div>
+        <div ng-view></div>
+        <div ng-include src="'app/fragments/footer.html'"></div>
+
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/angular-dynamic-locale/tmhDynamicLocale.min.js"></script>
+        <script src="bower_components/angular-route/angular-route.min.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+        <script src="bower_components/angular-translate/angular-translate.min.js"></script>
+        <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+        <script src="bower_components/marked/marked.min.js"></script>
+        <script src="bower_components/highlightjs/highlight.pack.min.js"></script>
+
+        <script src="app/disqus.js"></script>
+        <script src="app/app.js"></script>
+        <script src="app/services.js"></script>
+        <script src="app/interceptors.js"></script>
+        <script src="app/main/main-controller.js"></script>
+        <script src="app/login/login-controller.js"></script>
+        <script src="app/admin/articles/save-or-update-article-controller.js"></script>
+        <script src="app/admin/articles/articles-list-controller.js"></script>
+        <script src="app/article/article-controller.js"></script>
+        <script src="app/fragments/footer-controller.js"></script>
+
+        <script type="text/javascript">
+            // basic config for marked library - this will provide us with GitHub flavored markdown
+            marked.setOptions({
+                renderer: new marked.Renderer(),
+                gfm: true,
+                tables: true,
+                breaks: false,
+                pedantic: false,
+                sanitize: false, // if false -> allow plain old HTML ;)
+                smartLists: true,
+                smartypants: false,
+                highlight: function (code, lang) {
+                    if (lang) {
+                        return hljs.highlight(lang, code).value;
+                    } else {
+                        return hljs.highlightAuto(code).value;
+                    }
+                }
+            });
+        </script>
+    </body>
+
+</html>

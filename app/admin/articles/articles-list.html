@@ -1,0 +1,60 @@
+<div class="container-fluid content">
+    <div class="row row-offcanvas row-offcanvas-right content">
+        <div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="admin-menu">
+            <div ng-include src="'scripts/app/fragments/admin-menu.html'"></div>
+        </div>
+
+        <div class="col-xs-12 col-sm-10">
+            <div class="column-container">
+                <a href="/admin/article" class="btn btn-primary add-article-button">{{'ADD_ARTICLE' | translate}}</a>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>{{'ARTICLE_TITLE' | translate}}</th>
+                            <th>{{'AUTHOR' | translate}}</th>
+                            <th>{{'HASH_TAGS' | translate}}</th>
+                            <th>{{'ENABLED' | translate}}</th>
+                            <th>{{'CREATED_DATE' | translate}}</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="article in currentPage.articles">
+                            <td>{{article.title}}</td>
+                            <td>{{article.author.username}}</td>
+                            <td>
+                                <span ng-repeat="tag in article.hashtags">
+                                    {{tag}}
+                                </span>
+                            </td>
+                            <td><span class="glyphicon glyphicon-{{article.enabled ? 'ok' : 'remove'}}"></span></td>
+                            <td>{{article.created}}</td>
+                            <td>
+                                <a href="/admin/article/{{article.id}}"><span class="glyphicon glyphicon-pencil"></span></a>
+                            </td>
+                            <td>
+                                <a href="#"><span class="glyphicon glyphicon-remove" ng-click="deleteArticle(article.id)"></span></a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <uib-pagination
+                            boundary-links="true"
+                            total-items="currentPage.totalElements"
+                            ng-model="currentPageNumber"
+                            ng-change="pageChanged()"
+                            items-per-page="pageSize"
+                            class="pagination-sm"
+                            previous-text="&lsaquo;"
+                            next-text="&rsaquo;"
+                            first-text="&laquo;"
+                            last-text="&raquo;">
+                    </uib-pagination>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

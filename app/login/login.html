@@ -1,0 +1,24 @@
+<div class="container content">
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <label id="errorLabel" class="col-sm-offset-4 col-sm-4">{{errorMessage}}</label>
+        </div>
+        <div id="loginFormGroup" class="form-group {{errorClass}}">
+            <label id="loginLabel" for="loginInput" class="col-sm-4 control-label">{{'LOGIN' | translate}}:</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="loginInput" placeholder="{{'LOGIN_PLACEHOLDER' | translate}}" ng-model="user.email">
+            </div>
+        </div>
+        <div id="passwordFormGroup" class="form-group {{errorClass}}">
+            <label id="passwordLabel" for="passwordInput" class="col-sm-4 control-label">{{'PASSWORD' | translate}}:</label>
+            <div class="col-sm-4">
+                <input type="password" class="form-control" id="passwordInput" placeholder="{{'PASSWORD_PLACEHOLDER' | translate}}" ng-model="user.password">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-4">
+                <button id="loginButton" type="submit" class="btn btn-primary" ng-click="logIn(user.email, user.password)">{{'ENTER' | translate}}</button>
+            </div>
+        </div>
+    </form>
+</div>
