@@ -33,15 +33,21 @@ angular.module('controllers').controller('SaveOrUpdateArticleController', ['$sco
         });
 
         $scope.addHashTag = function() {
-            if ($scope.hashtag == undefined)
+            if ($scope.hashtag == undefined || getHashTagIndex($scope.hashtag) != -1) {
+                $scope.hashtag = null;
                 return;
+            }
             $scope.article.hashtags.push($scope.hashtag);
             $scope.hashtag = null;
         };
 
         $scope.deleteHashTag = function(hashtag) {
-            var tagIndex = $scope.article.hashtags.indexOf(hashtag);
-            $scope.article.hashtags.splice(index, 1);
+            var tagIndex = getHashTagIndex(hashtag);
+            $scope.article.hashtags.splice(tagIndex, 1);
+        };
+
+        var getHashTagIndex = function(hashtag) {
+            return $scope.article.hashtags.indexOf(hashtag);
         };
 
         $scope.saveOrUpdateArticle = function() {

@@ -17,6 +17,14 @@
                                 <input type="text" class="form-control" id="titleInput" placeholder="{{'TITLE_PLACEHOLDER' | translate}}" ng-model="article.title">
                             </div>
                         </div>
+                        <div id="hashTagsListFormGroup" class="form-group">
+                            <div class="col-sm-3 control-label"></div>
+                            <div class="col-sm-7">
+                                <span ng-repeat="tag in article.hashtags">
+                                    {{tag}} <a href="#" class="glyphicon glyphicon-remove" ng-click="deleteHashTag(tag)"></a>
+                                </span>
+                            </div>
+                        </div>
                         <div id="hashTagsFormGroup" class="form-group">
                             <label id="hashTagLabel" for="hashTagInput" class="col-sm-3 control-label">{{'HASH_TAG' | translate}}:</label>
                             <div class="col-sm-7">
