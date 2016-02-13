@@ -15,9 +15,8 @@
                             <a href="#" class="grey-color">{{tag}}</a>
                         </span>
                     </p>
-                    <p>
-                        {{article.preview}}
-                    </p>
+                    <div ng-bind-html="markText(article.preview)">
+                    </div>
                     <p>
                         <a href="/article/{{article.id}}">{{'READ_MORE' | translate}}</a>
                     </p>

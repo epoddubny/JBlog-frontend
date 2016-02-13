@@ -23,6 +23,10 @@ angular.module('controllers').controller('MainController', ['$scope', '$rootScop
                 $location.path("/page/" + $scope.currentPageNumber);
         };
 
+        $scope.markText = function(preview) {
+            return marked(preview);
+        };
+
         ArticleService.getPage($scope.currentPageNumber).success(function(data) {
             $scope.currentPage = data;
         }).error(function(status, data) {
