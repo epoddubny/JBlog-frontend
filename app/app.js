@@ -80,7 +80,7 @@ jBlogApp.config(['$routeProvider','$locationProvider', '$translateProvider', '$d
         $httpProvider.interceptors.push('TokenInterceptor');
 
         NotificationProvider.setOptions({
-            delay: 4000,
+            delay: 5000,
             startTop: 20,
             startRight: 10,
             verticalSpacing: 20,
