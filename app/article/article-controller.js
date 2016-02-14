@@ -4,8 +4,8 @@
 'use strict'
 
 angular.module('controllers').controller('ArticleController', ['$scope', '$rootScope', '$filter', '$location',
-    '$translate', '$routeParams', 'ArticleService',
-    function($scope, $rootScope, $filter, $location, $translate, $routeParams, ArticleService) {
+    '$translate', '$routeParams', 'Notification', 'ArticleService',
+    function($scope, $rootScope, $filter, $location, $translate, $routeParams, Notification, ArticleService) {
         $scope.articleId = $routeParams.id;
 
         $scope.getArticle = function(id) {
@@ -20,6 +20,7 @@ angular.module('controllers').controller('ArticleController', ['$scope', '$rootS
                     };
                     $scope.updateTitle($scope.article.title);
                 }).error(function(status, data) {
+                    Notification.error($filter('translate')('ERROR') + status);
                     console.log(status);
                     console.log(data);
                 });

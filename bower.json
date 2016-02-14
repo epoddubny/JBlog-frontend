@@ -25,6 +25,7 @@
     "angular-translate-loader-static-files": "~2.8.1",
     "angular-bootstrap": "~1.0.0",
     "angular-dynamic-locale": "~0.1.29",
-    "angular-i18n": "~1.4.8"
+    "angular-i18n": "~1.4.8",
+    "angular-ui-notification": "~0.1.0"
   }
 }

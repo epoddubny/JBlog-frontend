@@ -4,8 +4,8 @@
 'use strict';
 
 angular.module('controllers').controller('SaveOrUpdateArticleController', ['$scope', '$rootScope', '$translate',
-    '$routeParams', '$filter', 'tmhDynamicLocale', 'ArticleAdminService',
-    function($scope, $rootScope, $translate, $routeParams, $filter, tmhDynamicLocale, ArticleAdminService) {
+    '$routeParams', '$filter', 'tmhDynamicLocale', 'Notification', 'ArticleAdminService',
+    function($scope, $rootScope, $translate, $routeParams, $filter, tmhDynamicLocale, Notification, ArticleAdminService) {
         tmhDynamicLocale.set($translate.use());
 
         $scope.popup = {
@@ -24,6 +24,10 @@ angular.module('controllers').controller('SaveOrUpdateArticleController', ['$sco
             };
             ArticleAdminService.get($scope.articleId).success(function(data) {
                 $scope.article = data;
+            }).error(function(status, data) {
+                Notification.error('Ошибка' + status);
+                console.log(status);
+                console.log(data);
             });
         } else {
             $rootScope.title = {
@@ -59,7 +63,13 @@ angular.module('controllers').controller('SaveOrUpdateArticleController', ['$sco
 
         $scope.saveOrUpdateArticle = function() {
             if ($scope.article.id == undefined) {
-                ArticleAdminService.save($scope.article);
+                ArticleAdminService.save($scope.article).success(function(data) {
+                    Notification.success($filter('translate')('SAVED'));
+                }).error(function(status, data) {
+                    Notification.error($filter('translate')('ERROR') + status);
+                    console.log(status);
+                    console.log(data);
+                });
             }
         }
 }]);

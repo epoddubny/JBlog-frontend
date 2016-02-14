@@ -9,8 +9,8 @@ angular.module('interceptors', []);
 
 /* App Module */
 var jBlogApp = angular.module('jBlogApp', [
-   'ngRoute', 'pascalprecht.translate', 'ngSanitize', 'ui.bootstrap', 'tmh.dynamicLocale', 'ngDisqus', 'controllers',
-    'services', 'interceptors'
+   'ngRoute', 'pascalprecht.translate', 'ngSanitize', 'ui.bootstrap', 'tmh.dynamicLocale', 'ui-notification', 'ngDisqus',
+    'controllers', 'services', 'interceptors'
 ]);
 
 
@@ -24,9 +24,9 @@ options.api.private_api = "api/private";
 options.page_size = 5;
 
 jBlogApp.config(['$routeProvider','$locationProvider', '$translateProvider', '$disqusProvider', '$compileProvider',
-    '$httpProvider', 'tmhDynamicLocaleProvider',
+    '$httpProvider', 'tmhDynamicLocaleProvider', 'NotificationProvider',
     function($routeProvider, $locationProvider, $translateProvider, $disqusProvider, $compileProvider, $httpProvider,
-             tmhDynamicLocaleProvider) {
+             tmhDynamicLocaleProvider, NotificationProvider) {
 
         $routeProvider.when('/', {
             templateUrl: 'app/main/main.html',
@@ -78,6 +78,16 @@ jBlogApp.config(['$routeProvider','$locationProvider', '$translateProvider', '$d
         tmhDynamicLocaleProvider.localeLocationPattern('/bower_components/angular-i18n/angular-locale_{{locale}}.js');
 
         $httpProvider.interceptors.push('TokenInterceptor');
+
+        NotificationProvider.setOptions({
+            delay: 4000,
+            startTop: 20,
+            startRight: 10,
+            verticalSpacing: 20,
+            horizontalSpacing: 20,
+            positionX: 'right',
+            positionY: 'bottom'
+        });
 
 }]).run(function($rootScope, $location, $window, AuthenticationService) {
     $rootScope.$on("$routeChangeStart", function(event, nextRoute, currentRoute) {
