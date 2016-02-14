@@ -36,11 +36,11 @@ angular.module('controllers').controller('SaveOrUpdateArticleController', ['$sco
         }
 
         $scope.$watch('article.preview', function(preview) {
-            $scope.preview = marked((preview || '') + '<br/>' + ($scope.article.text || ''));
+            $scope.preview = marked(preview || '');
         });
 
         $scope.$watch('article.text', function(text) {
-            $scope.preview = marked(($scope.article.preview || '') + '<br/>' + (text || ''));
+            $scope.text = marked(text || '');
         });
 
         $scope.addHashTag = function() {
