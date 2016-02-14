@@ -27,6 +27,10 @@ angular.module('controllers').controller('ArticleController', ['$scope', '$rootS
             }
         };
 
+        $scope.markText = function(text) {
+            return marked(text);
+        };
+
         $scope.updateTitle = function(title) {
             $rootScope.title = {
                 value: title

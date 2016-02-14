@@ -1,11 +1,25 @@
 <div class="content">
     <div class="container">
+        <div class="blog-post container">
         <div class="row">
             <div class="col-sm-offset-2 col-sm-8">
+                <p class="blog-post-created">
+                    {{article.created}}
+                </p>
                 <h3 class="blog-post-title">{{article.title}}</h3>
-                <p>{{article.text}}</p>
+                <p class="hash-tags">
+                    <span class="glyphicon glyphicon-bookmark" ng-if="article.hashtags.length > 0"></span>
+                        <span ng-repeat="tag in article.hashtags">
+                            <a href="#" class="grey-color">{{tag}}</a>
+                        </span>
+                </p>
+                <div ng-bind-html="markText(article.preview)">
+                </div>
+                <div ng-bind-html="markText(article.text)">
+                </div>
                 <div disqus="disqusParameters"></div>
             </div>
+        </div>
         </div>
     </div>
 </div>

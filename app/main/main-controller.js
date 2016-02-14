@@ -23,8 +23,8 @@ angular.module('controllers').controller('MainController', ['$scope', '$rootScop
                 $location.path("/page/" + $scope.currentPageNumber);
         };
 
-        $scope.markText = function(preview) {
-            return marked(preview);
+        $scope.markText = function(text) {
+            return marked(text);
         };
 
         ArticleService.getPage($scope.currentPageNumber).success(function(data) {
