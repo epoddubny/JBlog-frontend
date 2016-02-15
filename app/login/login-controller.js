@@ -6,9 +6,8 @@
 angular.module('controllers').controller('LoginController', ['$scope', '$rootScope', '$window', '$location', '$filter',
     'UserService', 'AuthenticationService',
     function($scope, $rootScope, $window, $location, $filter, UserService, AuthenticationService) {
-        $rootScope.title = {
-            value: $filter('translate')('LOGIN_TITLE')
-        };
+
+        $rootScope.title = $filter('translate')('LOGIN_TITLE');
 
         $scope.logIn = function(email, password) {
         if (email !== undefined && password !== undefined) {

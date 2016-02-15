@@ -8,9 +8,7 @@ angular.module('controllers').controller('MainController', ['$scope', '$rootScop
 
     function($scope, $rootScope, $filter, $routeParams, $location, Notification, ArticleService) {
 
-        $rootScope.title = {
-            value: $filter('translate')('MAIN_TITLE')
-        };
+        $rootScope.title = $filter('translate')('MAIN_TITLE');
 
         $scope.pageSize = options.page_size;
 

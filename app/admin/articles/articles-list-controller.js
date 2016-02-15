@@ -7,9 +7,7 @@ angular.module('controllers').controller('ArticlesListController', ['$scope', '$
     'ArticleAdminService',
     function($scope, $rootScope, $filter, Notification, ArticleAdminService) {
 
-        $rootScope.title = {
-            value: $filter('translate')('ARTICLES_LIST_TITLE')
-        };
+        $rootScope.title = $filter('translate')('ARTICLES_LIST_TITLE');
 
         $scope.pageSize = options.page_size;
 

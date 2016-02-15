@@ -18,7 +18,9 @@ angular.module('controllers').controller('ArticleController', ['$scope', '$rootS
                         'title': data.title,
                         'lang': $translate.preferredLanguage()
                     };
-                    $scope.updateTitle($scope.article.title);
+
+                    $rootScope.title = $scope.article.title;
+
                 }).error(function(status, data) {
                     Notification.error($filter('translate')('ERROR') + status);
                 });
@@ -27,12 +29,6 @@ angular.module('controllers').controller('ArticleController', ['$scope', '$rootS
 
         $scope.markText = function(text) {
             return marked(text || '');
-        };
-
-        $scope.updateTitle = function(title) {
-            $rootScope.title = {
-                value: title
-            }
         };
 
         $scope.getArticle($scope.articleId);

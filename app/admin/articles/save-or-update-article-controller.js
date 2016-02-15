@@ -19,9 +19,9 @@ angular.module('controllers').controller('SaveOrUpdateArticleController', ['$sco
         $scope.articleId = $routeParams.id;
 
         if ($scope.articleId != undefined) {
-            $rootScope.title = {
-                value: $filter('translate')('ARTICLE_UPDATE_TITLE')
-            };
+
+            $rootScope.title = $filter('translate')('ARTICLE_UPDATE_TITLE');
+
             ArticleAdminService.get($scope.articleId).success(function(data) {
                 $scope.article = data;
             }).error(function(status, data) {
@@ -30,9 +30,7 @@ angular.module('controllers').controller('SaveOrUpdateArticleController', ['$sco
                 console.log(data);
             });
         } else {
-            $rootScope.title = {
-                value: $filter('translate')('ARTICLE_ADD_TITLE')
-            };
+            $rootScope.title = $filter('translate')('ARTICLE_ADD_TITLE');
         }
 
         $scope.saveOrUpdateArticle = function() {
