@@ -52,6 +52,9 @@ angular.module('services')
             },
             save: function(article) {
                 return $http.post(options.api.private_api + '/articles/save', article);
+            },
+            update: function(article) {
+                return $http.put(options.api.private_api + '/articles/update', article);
             }
         }
     }).factory('ContactsService', function($http) {

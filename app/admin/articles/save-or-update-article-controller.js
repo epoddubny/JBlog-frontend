@@ -35,6 +35,26 @@ angular.module('controllers').controller('SaveOrUpdateArticleController', ['$sco
             };
         }
 
+        $scope.saveOrUpdateArticle = function() {
+            if ($scope.article.id == undefined) {
+                ArticleAdminService.save($scope.article).success(function(data) {
+                    Notification.success($filter('translate')('SAVED'));
+                    redirectToArticlesPage();
+                }).error(function(status, data) {
+                    Notification.error($filter('translate')('ERROR') + status);
+                });
+            } else {
+                ArticleAdminService.update($scope.article).success(function(data) {
+                    Notification.success($filter('translate')('UPDATED'));
+                    redirectToArticlesPage();
+                }).error(function(status, data) {
+                    console.log(status);
+                    console.log(data);
+                    Notification.error($filter('translate')('ERROR') + status);
+                });
+            }
+        };
+
         $scope.$watch('article.preview', function(preview) {
             $scope.preview = marked(preview || '');
         });
@@ -61,16 +81,8 @@ angular.module('controllers').controller('SaveOrUpdateArticleController', ['$sco
             return $scope.article.hashtags.indexOf(hashtag);
         };
 
-        $scope.saveOrUpdateArticle = function() {
-            if ($scope.article.id == undefined) {
-                ArticleAdminService.save($scope.article).success(function(data) {
-                    Notification.success($filter('translate')('SAVED'));
-                    $location.path("/admin/articles");
-                }).error(function(status, data) {
-                    Notification.error($filter('translate')('ERROR') + status);
-                    console.log(status);
-                    console.log(data);
-                });
-            }
+        var redirectToArticlesPage = function() {
+            $location.path("/admin/articles");
         }
+
 }]);
