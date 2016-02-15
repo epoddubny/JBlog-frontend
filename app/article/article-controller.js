@@ -21,14 +21,12 @@ angular.module('controllers').controller('ArticleController', ['$scope', '$rootS
                     $scope.updateTitle($scope.article.title);
                 }).error(function(status, data) {
                     Notification.error($filter('translate')('ERROR') + status);
-                    console.log(status);
-                    console.log(data);
                 });
             }
         };
 
         $scope.markText = function(text) {
-            return marked(text);
+            return marked(text || '');
         };
 
         $scope.updateTitle = function(title) {

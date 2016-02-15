@@ -24,7 +24,7 @@ angular.module('controllers').controller('MainController', ['$scope', '$rootScop
         };
 
         $scope.markText = function(text) {
-            return marked(text);
+            return marked(text || '');
         };
 
         ArticleService.getPage($scope.currentPageNumber).success(function(data) {
