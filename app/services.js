@@ -1,15 +1,7 @@
 /**
  * Created by eugene on 06.12.15.
  */
-'use strict'
-
-angular.module('services').factory('AuthenticationService', function() {
-    var auth = {
-        isLogged: false
-    };
-
-    return auth;
-});
+'use strict';
 
 angular.module('services')
     .factory('UserService', function($http, $httpParamSerializer) {

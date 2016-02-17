@@ -1,7 +1,7 @@
 /**
  * Created by eugene on 21.11.15.
  */
-'use strict'
+'use strict';
 
 angular.module('controllers', ['services']);
 angular.module('services', []);
@@ -89,9 +89,9 @@ jBlogApp.config(['$routeProvider','$locationProvider', '$translateProvider', '$d
             positionY: 'bottom'
         });
 
-}]).run(function($rootScope, $location, $window, AuthenticationService) {
+}]).run(function($rootScope, $location, $window) {
     $rootScope.$on("$routeChangeStart", function(event, nextRoute, currentRoute) {
-        if (nextRoute.access.requiredLogin && !AuthenticationService.isLogged && !$window.sessionStorage.access_token) {
+        if (nextRoute.access.requiredLogin && !$window.localStorage.getItem('token')) {
             $location.path("/login");
         }
     });
