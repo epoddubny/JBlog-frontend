@@ -31,7 +31,7 @@
                                 <input type="text" class="form-control" id="hashTagInput" placeholder="{{'HASH_TAG_PLACEHOLDER' | translate}}" ng-model="hashtag">
                             </div>
                             <div class="col-sm-2">
-                                <a href="#" class="glyphicon glyphicon-plus add-hash-tag-button" ng-if="article.hashtags.length < 5" ng-click="addHashTag()"></a>
+                                <a href="#" id="addHashTagButton" class="glyphicon glyphicon-plus add-hash-tag-button" ng-if="article.hashtags.length < 5" ng-click="addHashTag()"></a>
                             </div>
                         </div>
                         <div id="previewFormGroup" class="form-group">
