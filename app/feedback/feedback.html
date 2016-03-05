@@ -1,32 +1,93 @@
 <div class="container content">
-    <form class="form-horizontal" role="form">
+    <form class="form-horizontal" role="form" name="feedbackForm">
         <div class="feedback">
             <div id="nameFormGroup" class="form-group">
-                <label id="nameLabel" for="nameInput" class="col-sm-4 control-label">{{'YOUR_NAME' | translate}}:</label>
+                <label id="nameLabel" for="nameInput" class="col-sm-4 control-label">
+                    {{'YOUR_NAME' | translate}}:
+                </label>
                 <div class="col-sm-4">
-                    <input id="nameInput" type="text" class="form-control"
+                    <input id="nameInput" type="text" class="form-control" name="username"
                            placeholder="{{'YOUR_NAME_PLACEHOLDER' | translate}}"
+                           ng-minlength="2" ng-maxlength="100" required
                            ng-model="feedback.senderName">
+                </div>
+                <div col-sm-4>
+                    <span ng-show="feedbackForm.username.$error.required && feedbackForm.username.$dirty"
+                          class="text-danger col-sm-offset-4 col-sm-4">
+                        {{'REQUIRED_FIELD' | translate}}
+                    </span>
+                    <span ng-show="feedbackForm.username.$error.minlength && feedbackForm.username.$dirty"
+                          class="text-danger col-sm-offset-4 col-sm-4">
+                        {{'MIN_LENGTH' | translate}} 2 {{'SYMBOL' | translate}}
+                    </span>
+                    <span ng-show="feedbackForm.username.$error.maxlength && feedbackForm.username.$dirty"
+                          class="text-danger col-sm-offset-4 col-sm-4">
+                        {{'MAX_LENGTH' | translate}} 100 {{'SYMBOLS' | translate}}
+                    </span>
                 </div>
             </div>
             <div id="emailFormGroup" class="form-group">
-                <label id="emailLabel" for="emailInput" class="col-sm-4 control-label">{{'YOUR_EMAIL' | translate}}:</label>
+                <label id="emailLabel" for="emailInput" class="col-sm-4 control-label">
+                    {{'YOUR_EMAIL' | translate}}:
+                </label>
                 <div class="col-sm-4">
-                    <input id="emailInput" type="text" class="form-control"
+                    <input id="emailInput" type="email" class="form-control" name="email"
+                           ng-minlength="5" ng-maxlength="100" required
                            placeholder="{{'YOUR_EMAIL_PLACEHOLDER' | translate}}"
                            ng-model="feedback.senderEmail">
                 </div>
+                <div col-sm-4>
+                    <span ng-show="feedbackForm.email.$error.required && feedbackForm.email.$dirty"
+                          class="text-danger col-sm-offset-4 col-sm-4">
+                        {{'REQUIRED_FIELD' | translate}}
+                    </span>
+                    <span ng-show="feedbackForm.email.$error.email && feedbackForm.email.$dirty"
+                          class="text-danger col-sm-offset-4 col-sm-4">
+                        {{'CORRECT_EMAIL' | translate}}
+                    </span>
+                    <span ng-show="feedbackForm.email.$error.minlength && feedbackForm.email.$dirty"
+                          class="text-danger col-sm-offset-4 col-sm-4">
+                        {{'MIN_LENGTH' | translate}} 5 {{'SYMBOLS' | translate}}
+                    </span>
+                    <span ng-show="feedbackForm.email.$error.maxlength && feedbackForm.email.$dirty"
+                          class="text-danger col-sm-offset-4 col-sm-4">
+                        {{'MAX_LENGTH' | translate}} 100 {{'SYMBOLS' | translate}}
+                    </span>
+                </div>
             </div>
             <div id="messageFormGroup" class="form-group">
-                <label id="messageLabel" for="emailInput" class="col-sm-4 control-label">{{'MESSAGE' | translate}}:</label>
+                <label id="messageLabel" for="emailInput" class="col-sm-4 control-label">
+                    {{'MESSAGE' | translate}}:
+                </label>
                 <div class="col-sm-4">
                     <textarea id=messageInput" class="form-control" placeholder="{{'MESSAGE_PLACEHOLDER' | translate}}"
-                              ng-model="feedback.message" rows="11"></textarea>
+                              ng-minlength="10" ng-maxlength="2000" required
+                              ng-model="feedback.message" rows="11" name="message">
+                    </textarea>
+                </div>
+                <div col-sm-4>
+                    <span ng-show="feedbackForm.message.$error.required && feedbackForm.message.$dirty"
+                          class="text-danger col-sm-offset-4 col-sm-4">
+                        {{'REQUIRED_FIELD' | translate}}
+                    </span>
+                    <span ng-show="feedbackForm.message.$error.minlength && feedbackForm.message.$dirty"
+                          class="text-danger col-sm-offset-4 col-sm-4">
+                        {{'MIN_LENGTH' | translate}} 10 {{'SYMBOLS' | translate}}
+                    </span>
+                    <span ng-show="feedbackForm.message.$error.maxlength && feedbackForm.message.$dirty"
+                          class="text-danger col-sm-offset-4 col-sm-4">
+                        {{'MAX_LENGTH' | translate}} 2000 {{'SYMBOLS' | translate}}
+                    </span>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-4 col-sm-4">
-                    <button id="sendButton" type="button" class="btn btn-primary" ng-click="sendFeedback()">{{'SEND' | translate}}</button>
+                    <button id="sendButton" type="button" class="btn btn-primary" ng-click="sendFeedback()"
+                            ng-disabled="feedbackForm.username.$invalid
+                            || feedbackForm.email.$invalid
+                            || feedbackForm.message.$invalid">
+                        {{'SEND' | translate}}
+                    </button>
                 </div>
             </div>
         </div>
