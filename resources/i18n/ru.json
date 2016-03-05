@@ -5,11 +5,11 @@
     "ARTICLES_LIST_TITLE": "Список статей",
     "ARTICLE_ADD_TITLE": "Добавить статью",
     "ARTICLE_UPDATE_TITLE": "Обновить статью",
-    "FEEDBACK_TITLE": "Обратная связь",
+    "FEEDBACK_TITLE": "Связаться со мной",
     "BRAND": "",
     "BLOG": "Блог",
     "CV": "Резюме",
-    "FEEDBACK": "Обратная связь",
+    "FEEDBACK": "Связаться со мной",
     "LOGIN": "Логин",
     "LOGIN_PLACEHOLDER": "Введите email",
     "PASSWORD": "Пароль",
@@ -17,13 +17,13 @@
     "YOUR_NAME": "Ваше имя",
     "YOUR_NAME_PLACEHOLDER": "Введите ваше имя",
     "YOUR_EMAIL": "Ваш e-mail",
-    "YOUR_EMAIL_PLACEHOLDER": "Введите ваш e-mail",
+    "YOUR_EMAIL_PLACEHOLDER": "Введите ваш email",
     "MESSAGE": "Сообщение",
     "MESSAGE_PLACEHOLDER": "Введите ваше сообщение",
     "REQUIRED_FIELD": "Поле обязательно для заполнения",
     "MIN_LENGTH": "Минимальный размер",
     "MAX_LENGTH": "Максимальный размер",
-    "CORRECT_EMAIL": "Введите корректный e-mail адрес",
+    "CORRECT_EMAIL": "Введите корректный email адрес",
     "SYMBOL": "символа",
     "SYMBOLS": "символов",
     "ENTER": "Войти",
@@ -54,6 +54,6 @@
     "DELETED": "Удалено",
     "SAVED": "Сохранено",
     "UPDATED": "Обновлено",
-    "MESSAGE_SENT": "Сообщение отправленно"
+    "MESSAGE_SENT": "Сообщение отправлено"
 
 }
