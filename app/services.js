@@ -55,4 +55,10 @@ angular.module('services')
                 return  $http.get(options.api.public_api + '/contacts');
             }
         }
+    }).factory('FeedbackService', function($http) {
+        return {
+            send: function(feedbackMessage) {
+                return  $http.post(options.api.public_api + '/feedback/save', feedbackMessage);
+            }
+        }
     });

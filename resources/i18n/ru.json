@@ -5,7 +5,7 @@
     "ARTICLES_LIST_TITLE": "Список статей",
     "ARTICLE_ADD_TITLE": "Добавить статью",
     "ARTICLE_UPDATE_TITLE": "Обновить статью",
-    "BRAND": "Мой блог",
+    "BRAND": "",
     "BLOG": "Блог",
     "CV": "Резюме",
     "FEEDBACK": "Обратная связь",
@@ -13,7 +13,14 @@
     "LOGIN_PLACEHOLDER": "Введите email",
     "PASSWORD": "Пароль",
     "PASSWORD_PLACEHOLDER": "Введите пароль",
+    "YOUR_NAME": "Ваше имя",
+    "YOUR_NAME_PLACEHOLDER": "Введите ваше имя",
+    "YOUR_EMAIL": "Ваш e-mail",
+    "YOUR_EMAIL_PLACEHOLDER": "Введите ваш e-mail",
+    "MESSAGE": "Сообщение",
+    "MESSAGE_PLACEHOLDER": "Введите ваше сообщение",
     "ENTER": "Войти",
+    "SEND": "Отправить",
     "READ_MORE": "Читать дальше...",
     "PREVIOUS_PAGE": "Предыдущая",
     "NEXT_PAGE": "Следующая",
@@ -39,6 +46,7 @@
     "ERROR": "Ошибка",
     "DELETED": "Удалено",
     "SAVED": "Сохранено",
-    "UPDATED": "Обновлено"
+    "UPDATED": "Обновлено",
+    "MESSAGE_SENT": "Сообщение отправленно"
 
 }

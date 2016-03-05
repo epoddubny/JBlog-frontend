@@ -106,6 +106,10 @@ body {
     font-weight: 700;
 }
 
+.feedback {
+    padding-top: 20px;
+}
+
 .page-pointer {
     font-size:22px;
     line-height:14px;

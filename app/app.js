@@ -40,6 +40,10 @@ jBlogApp.config(['$routeProvider','$locationProvider', '$translateProvider', '$d
             templateUrl: 'app/article/article.html',
             controller: 'ArticleController',
             access: { requiredLogin: false }
+        }).when('/feedback', {
+            templateUrl: 'app/feedback/feedback.html',
+            controller: 'FeedbackController',
+            access : { requiredLogin: false }
         }).when('/login', {
             templateUrl: 'app/login/login.html',
             controller: 'LoginController',
