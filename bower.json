@@ -26,6 +26,7 @@
     "angular-bootstrap": "~1.0.0",
     "angular-dynamic-locale": "~0.1.29",
     "angular-i18n": "~1.4.8",
-    "angular-ui-notification": "~0.1.0"
+    "angular-ui-notification": "~0.1.0",
+    "font-awesome": "fontawesome#~4.5.0"
   }
 }
