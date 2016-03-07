@@ -1,13 +1,15 @@
 /**
  * Created by eugene on 24.01.16.
  */
-'use strict'
+'use strict';
 
-angular.module('controllers').controller('ArticlesListController', ['$scope', '$rootScope', '$filter', 'Notification',
-    'ArticleAdminService',
-    function($scope, $rootScope, $filter, Notification, ArticleAdminService) {
+angular.module('controllers').controller('ArticlesListController', ['$scope', '$rootScope', '$filter', '$translate',
+    'Notification', 'ArticleAdminService',
+    function($scope, $rootScope, $filter, $translate, Notification, ArticleAdminService) {
 
-        $rootScope.title = $filter('translate')('ARTICLES_LIST_TITLE');
+        $translate('ARTICLES_LIST_TITLE').then(function (translatedValue) {
+            $rootScope.title = translatedValue;
+        });
 
         $scope.pageSize = options.page_size;
 
@@ -17,8 +19,8 @@ angular.module('controllers').controller('ArticlesListController', ['$scope', '$
             if ($scope.currentPageNumber != undefined) {
                 ArticleAdminService.getPage($scope.currentPageNumber).success(function(data) {
                     $scope.currentPage = data;
-                }).error(function(status, data) {
-                    Notification.error($filter('translate')('ERROR') + status);
+                }).error(function(data, status) {
+                    Notification.error($filter('translate')('ERROR'));
                     console.log(status);
                     console.log(data);
                 });
@@ -31,8 +33,8 @@ angular.module('controllers').controller('ArticlesListController', ['$scope', '$
                   $scope.currentPageNumber = 1;
                   $scope.pageChanged();
                   Notification.success($filter('translate')('DELETED'));
-              }).error(function(status, data) {
-                  Notification.error($filter('translate')('ERROR') + status);
+              }).error(function(data, status) {
+                  Notification.error($filter('translate')('ERROR'));
                   console.log(status);
                   console.log(data);
               });

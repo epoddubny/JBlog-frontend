@@ -20,17 +20,21 @@ angular.module('controllers').controller('SaveOrUpdateArticleController', ['$sco
 
         if ($scope.articleId != undefined) {
 
-            $rootScope.title = $filter('translate')('ARTICLE_UPDATE_TITLE');
+            $translate('ARTICLE_UPDATE_TITLE').then(function (translatedValue) {
+                $rootScope.title = translatedValue;
+            });
 
             ArticleAdminService.get($scope.articleId).success(function(data) {
                 $scope.article = data;
-            }).error(function(status, data) {
-                Notification.error($filter('translate')('ERROR') + status);
+            }).error(function(data, status) {
+                Notification.error($filter('translate')('ERROR'));
                 console.log(status);
                 console.log(data);
             });
         } else {
-            $rootScope.title = $filter('translate')('ARTICLE_ADD_TITLE');
+            $translate('ARTICLE_ADD_TITLE').then(function (translatedValue) {
+                $rootScope.title = translatedValue;
+            });
         }
 
         $scope.saveOrUpdateArticle = function() {
@@ -38,17 +42,19 @@ angular.module('controllers').controller('SaveOrUpdateArticleController', ['$sco
                 ArticleAdminService.save($scope.article).success(function(data) {
                     Notification.success($filter('translate')('SAVED'));
                     redirectToArticlesPage();
-                }).error(function(status, data) {
-                    Notification.error($filter('translate')('ERROR') + status);
+                }).error(function(data, status) {
+                    Notification.error($filter('translate')('ERROR'));
+                    console.log(status);
+                    console.log(data);
                 });
             } else {
                 ArticleAdminService.update($scope.article).success(function(data) {
                     Notification.success($filter('translate')('UPDATED'));
                     redirectToArticlesPage();
-                }).error(function(status, data) {
+                }).error(function(data, status) {
+                    Notification.error($filter('translate')('ERROR') + status);
                     console.log(status);
                     console.log(data);
-                    Notification.error($filter('translate')('ERROR') + status);
                 });
             }
         };

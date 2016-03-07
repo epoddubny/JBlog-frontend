@@ -11,7 +11,7 @@
                            ng-minlength="2" ng-maxlength="100" required
                            ng-model="feedback.senderName">
                 </div>
-                <div col-sm-4>
+                <div>
                     <span ng-show="feedbackForm.username.$error.required && feedbackForm.username.$dirty"
                           class="text-danger col-sm-offset-4 col-sm-4">
                         {{'REQUIRED_FIELD' | translate}}
@@ -36,7 +36,7 @@
                            placeholder="{{'YOUR_EMAIL_PLACEHOLDER' | translate}}"
                            ng-model="feedback.senderEmail">
                 </div>
-                <div col-sm-4>
+                <div>
                     <span ng-show="feedbackForm.email.$error.required && feedbackForm.email.$dirty"
                           class="text-danger col-sm-offset-4 col-sm-4">
                         {{'REQUIRED_FIELD' | translate}}
@@ -65,7 +65,7 @@
                               ng-model="feedback.message" rows="10" name="message">
                     </textarea>
                 </div>
-                <div col-sm-4>
+                <div>
                     <span ng-show="feedbackForm.message.$error.required && feedbackForm.message.$dirty"
                           class="text-danger col-sm-offset-4 col-sm-4">
                         {{'REQUIRED_FIELD' | translate}}

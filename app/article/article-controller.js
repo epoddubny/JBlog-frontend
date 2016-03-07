@@ -1,7 +1,7 @@
 /**
  * Created by eugene on 30.12.15.
  */
-'use strict'
+'use strict';
 
 angular.module('controllers').controller('ArticleController', ['$scope', '$rootScope', '$filter', '$location',
     '$translate', '$routeParams', 'Notification', 'ArticleService',
@@ -21,8 +21,10 @@ angular.module('controllers').controller('ArticleController', ['$scope', '$rootS
 
                     $rootScope.title = $scope.article.title;
 
-                }).error(function(status, data) {
-                    Notification.error($filter('translate')('ERROR') + status);
+                }).error(function(data, status) {
+                    Notification.error($filter('translate')('ERROR'));
+                    console.log(status);
+                    console.log(data);
                 });
             }
         };

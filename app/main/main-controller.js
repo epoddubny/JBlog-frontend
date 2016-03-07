@@ -4,11 +4,13 @@
 'use strict';
 
 angular.module('controllers').controller('MainController', ['$scope', '$rootScope', '$filter', '$routeParams', '$location',
-    'Notification', 'ArticleService',
+    '$translate', 'Notification', 'ArticleService',
 
-    function($scope, $rootScope, $filter, $routeParams, $location, Notification, ArticleService) {
+    function($scope, $rootScope, $filter, $routeParams, $location, $translate, Notification, ArticleService) {
 
-        $rootScope.title = $filter('translate')('MAIN_TITLE');
+        $translate('MAIN_TITLE').then(function (translatedValue) {
+            $rootScope.title = translatedValue;
+        });
 
         $scope.pageSize = options.page_size;
 
@@ -27,8 +29,8 @@ angular.module('controllers').controller('MainController', ['$scope', '$rootScop
 
         ArticleService.getPage($scope.currentPageNumber).success(function(data) {
             $scope.currentPage = data;
-        }).error(function(status, data) {
-            Notification.error($filter('translate')('ERROR') + status);
+        }).error(function(data, status) {
+            Notification.error($filter('translate')('ERROR'));
             console.log(status);
             console.log(data);
         });

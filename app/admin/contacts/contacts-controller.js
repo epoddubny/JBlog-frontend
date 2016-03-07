@@ -3,18 +3,22 @@
  */
 'use strict';
 
-angular.module('controllers').controller('ContactsController', ['$scope', '$rootScope', '$filter', 'Notification',
-    'ContactsService', 'ContactsAdminService',
-    function($scope, $rootScope, $filter, Notification, ContactsService, ContactsAdminService) {
+angular.module('controllers').controller('ContactsController', ['$scope', '$rootScope', '$filter', '$translate',
+    'Notification', 'ContactsService', 'ContactsAdminService',
+    function($scope, $rootScope, $filter, $translate, Notification, ContactsService, ContactsAdminService) {
 
-        $rootScope.title = $filter('translate')('CONTACTS_UPDATE_TITLE');
+        $translate('CONTACTS_UPDATE_TITLE').then(function (translatedValue) {
+            $rootScope.title = translatedValue;
+        });
 
         var getContacts = function() {
             ContactsService.get().success(function(data) {
                 $scope.contacts = data;
                 console.log($scope.contacts);
-            }).error(function(status, data) {
-                Notification.error($filter('translate')('ERROR') + status);
+            }).error(function(data, status) {
+                Notification.error($filter('translate')('ERROR'));
+                console.log(status);
+                console.log(data);
             });
         };
 
@@ -22,8 +26,10 @@ angular.module('controllers').controller('ContactsController', ['$scope', '$root
             ContactsAdminService.save($scope.contacts).success(function() {
                 Notification.success($filter('translate')('SAVED'));
                 $location.path("/admin/contacts");
-            }).error(function(status, data) {
-                Notification.error($filter('translate')('ERROR') + status);
+            }).error(function(data, status) {
+                Notification.error($filter('translate')('ERROR'));
+                console.log(status);
+                console.log(data);
             });
         };
 
