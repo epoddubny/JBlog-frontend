@@ -1,0 +1,126 @@
+<div class="container-fluid content">
+    <div class="row row-offcanvas row-offcanvas-right content">
+        <div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="admin-menu">
+            <div ng-include src="'app/fragments/admin-menu.html'"></div>
+        </div>
+        <div class="col-xs-10 col-sm-8">
+            <div class="column-container">
+                <form class="form-horizontal" role="form" name="contactsForm">
+                    <div id="emailFormGroup" class="form-group">
+                        <div class="row">
+                            <label id="emailLabel" for="emailInput" class="col-sm-2 control-label">
+                                {{'EMAIL' | translate}}:
+                            </label>
+                            <div class="col-sm-4">
+                                <input id="emailInput" name="email" type="email" class="form-control"
+                                       ng-minlength="5" ng-maxlength="100" required
+                                       placeholder="{{'EMAIL_PLACEHOLDER' | translate}}"
+                                       ng-model="contacts.email">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <span ng-show="contactsForm.email.$error.required && contactsForm.email.$dirty"
+                                  class="text-danger col-sm-offset-2 col-sm-4">
+                                {{'REQUIRED_FIELD' | translate}}
+                            </span>
+                        </div>
+                        <div class="row">
+                            <span ng-show="contactsForm.email.$error.email && contactsForm.email.$dirty"
+                                  class="text-danger col-sm-offset-2 col-sm-4">
+                                {{'CORRECT_EMAIL' | translate}}
+                            </span>
+                        </div>
+                        <div class="row">
+                            <span ng-show="contactsForm.email.$error.minlength && contactsForm.email.$dirty"
+                                  class="text-danger col-sm-offset-2 col-sm-4">
+                                {{'MIN_LENGTH' | translate}} 5 {{'SYMBOLS' | translate}}
+                            </span>
+                        </div>
+                        <div class="row">
+                            <span ng-show="contactsForm.email.$error.maxlength && contactsForm.email.$dirty"
+                                  class="text-danger col-sm-offset-2 col-sm-4">
+                                {{'MAX_LENGTH' | translate}} 100 {{'SYMBOLS' | translate}}
+                            </span>
+                        </div>
+                    </div>
+                    <div id="phoneFormGroup" class="form-group">
+                        <div class="row">
+                            <label id="phoneLabel" for="phoneInput" class="col-sm-2 control-label">
+                                {{'PHONE' | translate}}:
+                            </label>
+                            <div class="col-sm-4">
+                                <input id="phoneInput" name="phone" type="text" class="form-control"
+                                       placeholder="{{'PHONE_PLACEHOLDER' | translate}}" ng-model="contacts.phone">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="skypeFormGroup" class="form-group">
+                        <div class="row">
+                            <label id="skypeLabel" for="skypeInput" class="col-sm-2 control-label">
+                                {{'SKYPE' | translate}}:
+                            </label>
+                            <div class="col-sm-4">
+                                <input id="skypeInput" name="skype" type="text" class="form-control"
+                                       placeholder="{{'SKYPE_PLACEHOLDER' | translate}}" ng-model="contacts.skype">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="vkFormGroup" class="form-group">
+                        <div class="row">
+                            <label id="vkLabel" for="vkInput" class="col-sm-2 control-label">
+                                {{'VK' | translate}}:
+                            </label>
+                            <div class="col-sm-4">
+                                <input id="vkInput" name="vk" type="text" class="form-control"
+                                       placeholder="{{'VK_PLACEHOLDER' | translate}}" ng-model="contacts.vk">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="linkedinFormGroup" class="form-group">
+                        <div class="row">
+                            <label id="linkedinLabel" for="linkedinInput" class="col-sm-2 control-label">
+                                {{'LINKEDIN' | translate}}:
+                            </label>
+                            <div class="col-sm-4">
+                                <input id="linkedinInput" name="linkedin" type="text" class="form-control"
+                                       placeholder="{{'LINKEDIN_PLACEHOLDER' | translate}}" ng-model="contacts.linkedin">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="githubFormGroup" class="form-group">
+                        <div class="row">
+                            <label id="githubLabel" for="githubInput" class="col-sm-2 control-label">
+                                {{'GITHUB' | translate}}:
+                            </label>
+                            <div class="col-sm-4">
+                                <input id="githubInput" name="github" type="text" class="form-control"
+                                       placeholder="{{'GITHUB_PLACEHOLDER' | translate}}" ng-model="contacts.github">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="locationFormGroup" class="form-group">
+                        <div class="row">
+                            <label id="locationLabel" for="locationInput" class="col-sm-2 control-label">
+                                {{'LOCATION' | translate}}:
+                            </label>
+                            <div class="col-sm-4">
+                                <input id="locationInput" name="location" type="text" class="form-control"
+                                       placeholder="{{'LOCATION_PLACEHOLDER' | translate}}" ng-model="contacts.location">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-offset-2 col-sm-4">
+                                <button id="saveButton" type="button" class="btn btn-primary" ng-click="saveContacts()"
+                                        ng-disabled="contactsForm.email.$invalid">
+                                    {{'SAVE' | translate}}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

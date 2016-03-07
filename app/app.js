@@ -60,6 +60,10 @@ jBlogApp.config(['$routeProvider','$locationProvider', '$translateProvider', '$d
             templateUrl: 'app/admin/articles/articles-list.html',
             controller: 'ArticlesListController',
             access: { requiredLogin: true }
+        }).when('/admin/contacts', {
+                templateUrl: 'app/admin/contacts/contacts.html',
+                controller: 'ContactsController',
+                access: { requiredLogin: true }
         }).otherwise({
             redirectTo: '/'
         });

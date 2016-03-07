@@ -55,6 +55,12 @@ angular.module('services')
                 return  $http.get(options.api.public_api + '/contacts');
             }
         }
+    }).factory('ContactsAdminService', function($http) {
+        return {
+            save: function(contacts) {
+                return  $http.put(options.api.private_api + '/contacts/update', contacts);
+            }
+        }
     }).factory('FeedbackService', function($http) {
         return {
             send: function(feedbackMessage) {
