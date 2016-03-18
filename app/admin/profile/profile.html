@@ -1,0 +1,150 @@
+<div class="container-fluid content">
+    <div class="row row-offcanvas row-offcanvas-right content">
+        <div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="admin-menu">
+            <div ng-include src="'app/fragments/admin-menu.html'"></div>
+        </div>
+        <div class="col-xs-10 col-sm-8">
+            <div class="column-container">
+                <form class="form-horizontal" role="form" name="profileForm">
+                    <div id="usernameFormGroup" class="form-group">
+                        <div class="row">
+                            <label id="usernameLabel" for="usernameInput" class="col-sm-2 control-label">
+                                {{'LOGIN' | translate}}:
+                            </label>
+                            <div class="col-sm-4">
+                                <input id="usernameInput" name="username" type="text" class="form-control"
+                                       ng-minlength="4" ng-maxlength="100" required
+                                       placeholder="{{'LOGIN_PLACEHOLDER' | translate}}"
+                                       ng-model="profile.username">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <span ng-show="profileForm.username.$error.required && profileForm.username.$dirty"
+                                  class="text-danger col-sm-offset-2 col-sm-4">
+                                {{'REQUIRED_FIELD' | translate}}
+                            </span>
+                        </div>
+                        <div class="row">
+                            <span ng-show="profileForm.username.$error.minlength && profileForm.username.$dirty"
+                                  class="text-danger col-sm-offset-2 col-sm-4">
+                                {{'MIN_LENGTH' | translate}} 4 {{'SYMBOL' | translate}}
+                            </span>
+                        </div>
+                        <div class="row">
+                            <span ng-show="profileForm.username.$error.maxlength && profileForm.username.$dirty"
+                                  class="text-danger col-sm-offset-2 col-sm-4">
+                                {{'MAX_LENGTH' | translate}} 100 {{'SYMBOLS' | translate}}
+                            </span>
+                        </div>
+                    </div>
+                    <div id="emailFormGroup" class="form-group">
+                        <div class="row">
+                            <label id="emailLabel" for="emailInput" class="col-sm-2 control-label">
+                                {{'EMAIL' | translate}}:
+                            </label>
+                            <div class="col-sm-4">
+                                <input id="emailInput" name="email" type="email" class="form-control"
+                                       ng-minlength="5" ng-maxlength="100" required
+                                       placeholder="{{'EMAIL_PLACEHOLDER' | translate}}"
+                                       ng-model="profile.email">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <span ng-show="profileForm.email.$error.required && profileForm.email.$dirty"
+                                  class="text-danger col-sm-offset-2 col-sm-4">
+                                {{'REQUIRED_FIELD' | translate}}
+                            </span>
+                        </div>
+                        <div class="row">
+                            <span ng-show="profileForm.email.$error.email && profileForm.email.$dirty"
+                                  class="text-danger col-sm-offset-2 col-sm-4">
+                                {{'CORRECT_EMAIL' | translate}}
+                            </span>
+                        </div>
+                        <div class="row">
+                            <span ng-show="profileForm.email.$error.minlength && profileForm.email.$dirty"
+                                  class="text-danger col-sm-offset-2 col-sm-4">
+                                {{'MIN_LENGTH' | translate}} 5 {{'SYMBOLS' | translate}}
+                            </span>
+                        </div>
+                        <div class="row">
+                            <span ng-show="profileForm.email.$error.maxlength && profileForm.email.$dirty"
+                                  class="text-danger col-sm-offset-2 col-sm-4">
+                                {{'MAX_LENGTH' | translate}} 100 {{'SYMBOLS' | translate}}
+                            </span>
+                        </div>
+                    </div>
+                    <div id="oldPasswordFormGroup" class="form-group">
+                        <div class="row">
+                            <label id="oldPasswordLabel" for="oldPasswordInput" class="col-sm-2 control-label">
+                                {{'OLD_PASSWORD' | translate}}:
+                            </label>
+                            <div class="col-sm-4">
+                                <input id="oldPasswordInput" name="oldPassword" type="password" class="form-control"
+                                       ng-minlength="6" ng-maxlength="100" required
+                                       ng-model="profile.oldPassword">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <span ng-show="profileForm.oldPassword.$error.required && profileForm.oldPassword.$dirty"
+                                  class="text-danger col-sm-offset-2 col-sm-4">
+                                {{'REQUIRED_FIELD' | translate}}
+                            </span>
+                        </div>
+                        <div class="row">
+                            <span ng-show="profileForm.oldPassword.$error.minlength && profileForm.oldPassword.$dirty"
+                                  class="text-danger col-sm-offset-2 col-sm-4">
+                                {{'MIN_LENGTH' | translate}} 6 {{'SYMBOLS' | translate}}
+                            </span>
+                        </div>
+                        <div class="row">
+                            <span ng-show="profileForm.oldPassword.$error.maxlength && profileForm.oldPassword.$dirty"
+                                  class="text-danger col-sm-offset-2 col-sm-4">
+                                {{'MAX_LENGTH' | translate}} 100 {{'SYMBOLS' | translate}}
+                            </span>
+                        </div>
+                    </div>
+                    <div id="newPasswordFormGroup" class="form-group">
+                        <div class="row">
+                            <label id="newPasswordLabel" for="newPasswordInput" class="col-sm-2 control-label">
+                                {{'NEW_PASSWORD' | translate}}:
+                            </label>
+                            <div class="col-sm-4">
+                                <input id="newPasswordInput" name="newPassword" type="password" class="form-control"
+                                       ng-minlength="6" ng-maxlength="100" required
+                                       ng-model="profile.newPassword">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <span ng-show="profileForm.newPassword.$error.required && profileForm.newPassword.$dirty"
+                                  class="text-danger col-sm-offset-2 col-sm-4">
+                                {{'REQUIRED_FIELD' | translate}}
+                            </span>
+                        </div>
+                        <div class="row">
+                            <span ng-show="profileForm.newPassword.$error.minlength && profileForm.newPassword.$dirty"
+                                  class="text-danger col-sm-offset-2 col-sm-4">
+                                {{'MIN_LENGTH' | translate}} 6 {{'SYMBOLS' | translate}}
+                            </span>
+                        </div>
+                        <div class="row">
+                            <span ng-show="profileForm.newPassword.$error.maxlength && profileForm.newPassword.$dirty"
+                                  class="text-danger col-sm-offset-2 col-sm-4">
+                                {{'MAX_LENGTH' | translate}} 100 {{'SYMBOLS' | translate}}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-offset-2 col-sm-4">
+                                <button id="saveButton" type="button" class="btn btn-primary" ng-click="updateProfile()">
+                                    {{'SAVE' | translate}}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

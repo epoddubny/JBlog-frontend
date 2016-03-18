@@ -64,6 +64,10 @@ jBlogApp.config(['$routeProvider','$locationProvider', '$translateProvider', '$d
                 templateUrl: 'app/admin/contacts/contacts.html',
                 controller: 'ContactsController',
                 access: { requiredLogin: true }
+        }).when('/admin/profile', {
+            templateUrl: 'app/admin/profile/profile.html',
+            controller: 'ProfileController',
+            access: { requiredLogin: true }
         }).otherwise({
             redirectTo: '/'
         });

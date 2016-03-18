@@ -67,4 +67,13 @@ angular.module('services')
                 return  $http.post(options.api.public_api + '/feedback/save', feedbackMessage);
             }
         }
+    }).factory('ProfileAdminService', function($http) {
+        return {
+            get: function() {
+                return  $http.get(options.api.private_api + '/profile');
+            },
+            update: function(profile) {
+                return $http.put(options.api.private_api + '/profile/update', profile);
+            }
+        }
     });
