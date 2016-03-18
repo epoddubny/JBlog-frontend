@@ -1,13 +1,10 @@
 /**
  * Created by eugene on 01.01.16.
  */
+'use strict';
+module.exports = function(jBlogApp, window) {
 
-(function (angular, window) {
-    'use strict';
-
-    var disqusModule = angular.module('ngDisqus', []);
-
-    disqusModule.provider('$disqus', function() {
+    jBlogApp.provider('$disqus', function() {
 
         var shortname;
 
@@ -43,7 +40,7 @@
 
         this.setShortname = function(sname) {
             shortname = sname;
-        }
+        };
 
         function addScriptTag() {
             var container = getScriptContainer();
@@ -95,7 +92,7 @@
 
     });
 
-    disqusModule.directive('disqus', ['$disqus', function($disqus) {
+    jBlogApp.directive('disqus', ['$disqus', function($disqus) {
         return {
             restrict : 'A',
             replace  : true,
@@ -113,5 +110,5 @@
         };
     }]);
 
-})(angular, this);
+};
 
