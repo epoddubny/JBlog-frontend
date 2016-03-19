@@ -1,7 +1,7 @@
 /**
  * Created by eugene on 18.03.16.
  */
-module.exports = function(marked) {
+module.exports = function(marked, hljs) {
     // basic config for marked library - this will provide us with GitHub flavored markdown
     marked.setOptions({
         renderer: new marked.Renderer(),

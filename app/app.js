@@ -4,6 +4,7 @@
 'use strict';
 var angular = require('angular');
 var marked = require('marked');
+var highlight = require('highlightjs/highlight.pack.min.js');
 require('angular-dynamic-locale');
 require('angular-route');
 require('angular-resource');
@@ -11,7 +12,6 @@ require('angular-translate/angular-translate.min.js');
 require('angular-translate-loader-static-files');
 require('angular-sanitize');
 require('angular-bootstrap');
-require('highlightjs/highlight.pack.min.js');
 require('angular-ui-notification');
 
 angular.module('controllers', ['services']);
@@ -36,7 +36,7 @@ var jBlogApp = angular.module('jBlogApp', [
     'controllers', 'services', 'interceptors'
 ]);
 
-require('./marked')(marked);
+require('./marked')(marked, highlight);
 require('./disqus.js')(jBlogApp, window);
 require('./interceptors.js')(jBlogApp, options);
 require('./services.js')(jBlogApp, options);
