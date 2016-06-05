@@ -2,13 +2,15 @@
  * Created by eugene on 18.03.16.
  */
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var webpack = require('webpack');
 
 module.exports = {
     context: __dirname + '/app',
     entry: './app.js',
+    devtool: "source-map",
     output: {
         path: __dirname + '/app/',
-        filename: 'bundle.js'
+        filename: 'bundle.min.js'
     },
     resolve: {
         modulesDirectories: [__dirname + '/bower_components']
@@ -26,6 +28,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new ExtractTextPlugin("bundle.css", { allChunks: true })
+        new ExtractTextPlugin("bundle.css", { allChunks: true }),
+        new webpack.optimize.UglifyJsPlugin({minimize: true, compress: {warnings: false}, mangle: false})
     ]
 };
