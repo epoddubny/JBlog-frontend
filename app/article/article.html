@@ -10,7 +10,7 @@
                 <p class="hash-tags">
                     <span class="glyphicon glyphicon-bookmark" ng-if="article.hashtags.length > 0"></span>
                         <span ng-repeat="tag in article.hashtags">
-                            <a href="#" class="grey-color">{{tag}}</a>
+                            <a href="/tags/{{tag}}" class="grey-color">{{tag}}</a>
                         </span>
                 </p>
                 <div ng-bind-html="markText(article.preview)">

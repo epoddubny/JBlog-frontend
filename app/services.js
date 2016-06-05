@@ -28,6 +28,9 @@ module.exports = function(jBlogApp, options) {
             },
             getPage: function (page) {
                 return $http.get(options.api.public_api + '/articles?page=' + page + "&pageSize=" + options.page_size);
+            },
+            getHashtagPage: function (hashtag, page) {
+                return $http.get(options.api.public_api + '/articles/hashtag/' + hashtag + '?page=' + page + "&pageSize=" + options.page_size);
             }
         }
     }).factory('ArticleAdminService', function ($http) {

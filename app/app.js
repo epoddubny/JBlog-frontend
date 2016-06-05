@@ -49,6 +49,7 @@ require('./feedback/feedback-controller.js')(jBlogApp);
 require('./fragments/footer-controller.js')(jBlogApp);
 require('./login/login-controller.js')(jBlogApp);
 require('./main/main-controller.js')(jBlogApp, options, marked);
+require('./hashtag/hashtag-controller.js')(jBlogApp, options, marked);
 
 require("../bower_components/bootstrap/dist/css/bootstrap.min.css");
 require("../bower_components/highlightjs/styles/github.css");
@@ -69,6 +70,14 @@ jBlogApp.config(['$routeProvider','$locationProvider', '$translateProvider', '$d
         }).when('/page/:pageNumber', {
             templateUrl: 'app/main/main.html',
             controller: 'MainController',
+            access: { requiredLogin: false }
+        }).when('/tags/:hashtag', {
+            templateUrl: 'app/hashtag/hashtag.html',
+            controller: 'HashtagController',
+            access: { requiredLogin: false }
+        }).when('/tags/:hashtag/page/:pageNumber', {
+            templateUrl: 'app/hashtag/hashtag.html',
+            controller: 'HashtagController',
             access: { requiredLogin: false }
         }).when('/article/:id', {
             templateUrl: 'app/article/article.html',
