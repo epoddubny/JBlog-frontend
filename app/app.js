@@ -126,7 +126,7 @@ jBlogApp.config(['$routeProvider','$locationProvider', '$translateProvider', '$d
             suffix: '.json'
         });
 
-        $disqusProvider.setShortname('myjblogtest');
+        $disqusProvider.setShortname('epoddubnyru');
 
         $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension|skype):/);
 
